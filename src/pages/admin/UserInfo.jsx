@@ -104,7 +104,7 @@ if(file){
     try {
         const accessToken = localStorage.getItem("accessToken");
         const res = await axios.get(
-          `http://localhost:5555/api/v1/user/get-user/${userId}`,
+          `${API_URL}/api/v1/user/get-user/${userId}`,
           {
             headers: {
               Authorization: `Bearer ${accessToken}`,

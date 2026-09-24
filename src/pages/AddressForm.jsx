@@ -122,7 +122,7 @@ const AddressForm = () => {
      handler: async function (response) {
   try {
     const verifyRes = await axios.post(
-      "http://localhost:5555/api/v1/orders/verify-payment",
+      `${API_URL}/api/v1/orders/verify-payment`,
       response,
       {
         headers: {
@@ -134,7 +134,7 @@ const AddressForm = () => {
     if (verifyRes.data.success) {
       // Latest cart backend se fetch karo
       const cartRes = await axios.get(
-        "http://localhost:5555/api/v1/cart",
+        `${API_URL}/api/v1/cart`,
         {
           headers: {
             Authorization: `Bearer ${accessToken}`,
@@ -165,7 +165,7 @@ const AddressForm = () => {
       modal: {
         ondismiss: async function () {
           await axios.post(
-            "http://localhost:5555/api/v1/orders/verify-payment",
+            `${API_URL}/api/v1/orders/verify-payment`,
             {
               razorpay_order_id: data.order.id,
               paymentFailed: true,
@@ -196,7 +196,7 @@ const AddressForm = () => {
 
     rzp.on("payment.failed", async function () {
       await axios.post(
-        "http://localhost:5555/api/v1/orders/verify-payment",
+        `${API_URL}/api/v1/orders/verify-payment`,
         {
           razorpay_order_id: data.order.id,
           paymentFailed: true,

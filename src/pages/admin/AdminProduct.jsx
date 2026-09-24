@@ -103,7 +103,7 @@ const AdminProduct = () => {
   const deleteProductHandler = async (productId) => {
     try {
       const remainingProducts = products.filter((product) => product._id !== productId)
-      const res = await axios.delete(`http://localhost:5555/api/v1/product/delete/${productId}`, {
+      const res = await axios.delete(`${API_URL}/api/v1/product/delete/${productId}`, {
         headers: {
           Authorization: `Bearer ${accessToken}`
         }
