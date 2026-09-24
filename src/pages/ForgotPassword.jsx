@@ -14,7 +14,7 @@ import { Loader2, Mail } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 import axios from "axios";
-
+import { API_URL } from "@/utils/api";
 const ForgotPassword = () => {
   const [email, setEmail] = useState("");
   const [loading, setLoading] = useState(false);
@@ -29,7 +29,7 @@ const ForgotPassword = () => {
     try {
       setLoading(true);
       const res = await axios.post(
-        "http://localhost:5555/api/v1/user/forgot-password",
+        `${API_URL}/api/v1/user/forgot-password`,
         { email },
         { headers: { "Content-Type": "application/json" } }
       );

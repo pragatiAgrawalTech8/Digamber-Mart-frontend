@@ -14,7 +14,7 @@ import { Eye, EyeOff, Loader2, Lock } from "lucide-react";
 import { useNavigate, useParams } from "react-router-dom";
 import { toast } from "sonner";
 import axios from "axios";
-
+import { API_URL } from "@/utils/api";
 const ChangePassword = () => {
   const { email } = useParams();
   const [showPassword, setShowPassword] = useState(false);
@@ -47,7 +47,7 @@ const ChangePassword = () => {
     try {
       setLoading(true);
       const res = await axios.post(
-        `http://localhost:5555/api/v1/user/change-password/${email}`,
+        `${API_URL}/api/v1/user/change-password/${email}`,
         formData,
         { headers: { "Content-Type": "application/json" } }
       );

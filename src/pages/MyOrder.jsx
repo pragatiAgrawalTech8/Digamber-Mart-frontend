@@ -2,14 +2,14 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import OrderCard from "@/components/OrderCard"
-
+import { API_URL } from "@/utils/api";
 const MyOrder = () => {
  
   const [userOrder, setUserOrder] = useState(null)
 
   const getUserOrders = async () => {
     const accessToken = localStorage.getItem('accessToken')
-    const res = await axios.get(`http://localhost:5555/api/v1/orders/myorder`, {
+    const res = await axios.get(`${API_URL}/api/v1/orders/myorder`, {
       headers: {
         Authorization: `Bearer ${accessToken}`
       }

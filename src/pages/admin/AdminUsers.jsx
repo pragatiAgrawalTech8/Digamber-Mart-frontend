@@ -6,6 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Edit, Eye, Search } from "lucide-react";
 // import UserLogo from "../../user.png";
 import { toast } from "sonner";
+import { API_URL } from "@/utils/api";
 const AdminUsers = () => {
   const [users, setUsers] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
@@ -23,7 +24,7 @@ const AdminUsers = () => {
     const accessToken = localStorage.getItem("accessToken");
     try {
       const res = await axios.get(
-        `http://localhost:5555/api/v1/user/all-user`,
+        `${API_URL}/api/v1/user/all-user`,
         {
           headers: {
             Authorization: `Bearer ${accessToken}`,

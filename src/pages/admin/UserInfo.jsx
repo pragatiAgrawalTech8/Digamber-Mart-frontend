@@ -10,6 +10,7 @@ import { setUser } from '@/redux/userSlice'
 import { useDispatch, useSelector } from 'react-redux'
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
 import { ArrowLeft } from 'lucide-react'
+import { API_URL } from "@/utils/api";
 
 const UserInfo = () => {
     const [userDetails, setUserDetails] = useState(null)
@@ -57,7 +58,7 @@ if(file){
             // }
 
             const res = await axios.put(
-                `http://localhost:5555/api/v1/user/update/${userId}`,
+                `${API_URL}/api/v1/user/update/${userId}`,
                 formData,
                 {
                     headers: {

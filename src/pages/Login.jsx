@@ -16,6 +16,7 @@ import { toast } from "sonner";
 import axios from "axios";
 import { useDispatch } from "react-redux";
 import { setUser } from "@/redux/userSlice";
+import { API_URL } from "@/utils/api";
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -42,7 +43,7 @@ const Login = () => {
     try {
       setLoading(true);
       const res = await axios.post(
-        "http://localhost:5555/api/v1/user/login",
+        `${API_URL}/api/v1/user/login`,
         formData,
         {
           headers: {

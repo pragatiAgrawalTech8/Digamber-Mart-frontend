@@ -5,14 +5,14 @@ import axios from "axios";
 import { toast } from "sonner";
 import { useDispatch } from "react-redux";
 import { setCart } from "@/redux/productSlice";
-
+import { API_URL } from "@/utils/api";
 const ProductDesc = ({ product }) => {
   const accessToken = localStorage.getItem("accessToken");
   const dispatch = useDispatch();
   const addToCart = async (productId) => {
     try {
       const res = await axios.post(
-        "http://localhost:5555/api/v1/cart/add",
+        `${API_URL}/api/v1/cart/add`,
         { productId },
         {
           headers: {

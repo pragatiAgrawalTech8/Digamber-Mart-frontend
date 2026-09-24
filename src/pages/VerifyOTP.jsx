@@ -14,7 +14,7 @@ import { Loader2, ShieldCheck } from "lucide-react";
 import { useNavigate, useParams } from "react-router-dom";
 import { toast } from "sonner";
 import axios from "axios";
-
+import { API_URL } from "@/utils/api";
 const VerifyOTP = () => {
   const { email } = useParams();
   const [otp, setOtp] = useState("");
@@ -34,7 +34,7 @@ const VerifyOTP = () => {
     try {
       setLoading(true);
       const res = await axios.post(
-        `http://localhost:5555/api/v1/user/verify-otp/${email}`,
+        `${API_URL}/api/v1/user/verify-otp/${email}`,
         { otp },
         { headers: { "Content-Type": "application/json" } }
       );

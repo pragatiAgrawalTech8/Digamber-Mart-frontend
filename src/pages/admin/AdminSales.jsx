@@ -14,7 +14,7 @@ import {
   Tooltip,
   ResponsiveContainer,
 } from "recharts";
-
+import { API_URL } from "@/utils/api";
 
 const AdminSales = () => {
   const [stats, setStats] = useState({
@@ -29,7 +29,7 @@ const AdminSales = () => {
     try {
       const token = localStorage.getItem("accessToken");
       const res = await axios.get(
-        "http://localhost:5555/api/v1/orders/sales",
+        `${API_URL}/api/v1/orders/sales`,
         {
           headers: { Authorization: `Bearer ${token}` },
         }

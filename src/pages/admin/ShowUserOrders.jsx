@@ -3,6 +3,7 @@ import axios from "axios";
 import { ArrowLeft } from "lucide-react";
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import { API_URL } from "@/utils/api";
 
 const ShowUserOrders = () => {
   const params = useParams();
@@ -12,7 +13,7 @@ const ShowUserOrders = () => {
   const getUserOrders = async () => {
     const accessToken = localStorage.getItem("accessToken");
     const res = await axios.get(
-      `http://localhost:5555/api/v1/orders/user-order/${params.userId}`,
+      `${API_URL}/api/v1/orders/user-order/${params.userId}`,
       {
         headers: {
           Authorization: `Bearer ${accessToken}`,

@@ -10,6 +10,8 @@ import axios from "axios";
 import { toast } from "sonner";
 import { useEffect } from "react";
 import { setCart } from "@/redux/productSlice";
+import { API_URL } from "@/utils/api";
+
 const Cart = () => {
   const dispatch = useDispatch();
   const { cart } = useSelector((store) => store.product);
@@ -20,7 +22,7 @@ const Cart = () => {
   const total = subtotal + shipping + tax;
   const navigate = useNavigate();
 
-  const API = "http://localhost:5555/api/v1/cart";
+  const API = `${API_URL}/api/v1/cart`;
   const accessToken = localStorage.getItem("accessToken");
 
   useEffect(() => {

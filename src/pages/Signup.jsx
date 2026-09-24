@@ -14,7 +14,7 @@ import { Eye, EyeOff, Loader2 } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 import axios from "axios";
-
+import { API_URL } from "@/utils/api";
 const Signup = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -41,7 +41,7 @@ const Signup = () => {
     try {
       setLoading(true);
       const res = await axios.post(
-        "http://localhost:5555/api/v1/user/register",
+        "`${API_URL}/api/v1/user/register`/",
         formData,
         {
           headers: {

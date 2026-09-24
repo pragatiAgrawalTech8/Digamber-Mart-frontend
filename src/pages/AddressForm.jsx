@@ -16,6 +16,7 @@ import {
 } from "@/redux/productSlice";
 import axios from "axios";
 import { toast } from "sonner";
+import { API_URL } from "@/utils/api";
 
 const AddressForm = () => {
   const [formData, setFormData] = useState({
@@ -91,7 +92,7 @@ const AddressForm = () => {
     }
 
     const { data } = await axios.post(
-      "http://localhost:5555/api/v1/orders/create-order",
+      `${API_URL}/api/v1/orders/create-order`,
       {
         products: validProducts,
         tax,

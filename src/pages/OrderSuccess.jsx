@@ -2,6 +2,7 @@ import React from "react";
 import { CheckCircle } from "lucide-react"; // success icon
 import { useNavigate } from "react-router-dom";
 
+
 const OrderSuccess = () => {
   const navigate = useNavigate();
 

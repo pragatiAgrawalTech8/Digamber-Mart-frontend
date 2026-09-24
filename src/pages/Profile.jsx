@@ -19,6 +19,7 @@ import axios from "axios";
 import { toast } from "sonner";
 import { setUser } from "@/redux/userSlice";
 import MyOrder from './MyOrder';
+import { API_URL } from "@/utils/api";
 
 const Profile = () => {
   const { user } = useSelector((store) => store.user);
@@ -72,7 +73,7 @@ const Profile = () => {
       }
 
       const res = await axios.put(
-        `http://localhost:5555/api/v1/user/update/${userId}`,
+        `${API_URL}/api/v1/user/update/${userId}`,
         formData,
         {
           headers: {

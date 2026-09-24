@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import { setProducts } from "@/redux/productSlice";
+import { API_URL } from "@/utils/api";
 
 const SingleProduct = () => {
   const params = useParams();
@@ -19,7 +20,7 @@ const SingleProduct = () => {
       const fetchProducts = async () => {
         try {
           const res = await axios.get(
-            "http://localhost:5555/api/v1/product/getallproducts",
+            `${API_URL}/api/v1/product/getallproducts`,
           );
           if (res.data.success) {
             dispatch(setProducts(res.data.products));

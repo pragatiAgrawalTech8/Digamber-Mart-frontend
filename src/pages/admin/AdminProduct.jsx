@@ -23,7 +23,7 @@ import {
 import { Label } from "@/components/ui/label"
 import { Textarea } from '@/components/ui/textarea'
 import ImageUpload from '@/components/ImageUpload'
-
+import { API_URL } from "@/utils/api";
 
 const AdminProduct = () => {
   const { products } = useSelector(store => store.product)
@@ -81,7 +81,7 @@ const AdminProduct = () => {
 
     try {
       const res = await axios.put(
-        `http://localhost:5555/api/v1/product/update/${editProduct._id}`,
+        `${API_URL}/api/v1/product/update/${editProduct._id}`,
         formData,
         { headers: { Authorization: `Bearer ${accessToken}` } }
       );

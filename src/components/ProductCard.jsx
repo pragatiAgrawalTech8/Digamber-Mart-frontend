@@ -6,7 +6,7 @@ import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { setCart } from "@/redux/productSlice";
 import axios from "axios";
-
+import { API_URL } from "@/utils/api";
 const ProductCard = ({ product, loading }) => {
   const { productImg, productPrice, productName } = product;
 
@@ -16,7 +16,7 @@ const ProductCard = ({ product, loading }) => {
   const addToCart = async (productId) => {
     try {
       const res = await axios.post(
-        "http://localhost:5555/api/v1/cart/add",
+        `${API_URL}/api/v1/cart/add`,
         { productId },
         {
           headers: {

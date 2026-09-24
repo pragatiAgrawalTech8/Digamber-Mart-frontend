@@ -14,7 +14,7 @@ import axios from "axios";
 import { toast } from "sonner";
 import { useDispatch, useSelector } from "react-redux";
 import { setProducts } from "@/redux/productSlice";
-
+import { API_URL } from "@/utils/api";
 const Products = () => {
   const { products } = useSelector((store) => store.product);
   const [allProducts, setAllProducts] = useState([]);
@@ -30,7 +30,7 @@ const Products = () => {
     try {
       setLoading(true);
       const res = await axios.get(
-        "http://localhost:5555/api/v1/product/getallproducts",
+        `${API_URL}/api/v1/product/getallproducts`,
       );
       // console.log(res.data);
       if (res.data.success) {
