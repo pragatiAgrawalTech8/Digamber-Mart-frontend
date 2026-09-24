@@ -14,9 +14,9 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto px-4 md:flex md:justify-between">
         {/* info */}
         <div className="mb-6 md:mb-0">
-          <Link to="/">
+          {/* <Link to="/">
             <img src="/Ekart.png" alt="" className="w-32" />
-          </Link>
+          </Link> */}
           <p className="mt-2 text-sm">
             Bringing elegance to your dining table with premium-quality
             crockery.

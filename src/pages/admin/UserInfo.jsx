@@ -90,7 +90,7 @@ if(file){
 
     // const getUserDetails = async () => {
     //     try {
-    //         const res = await axios.get(`http://localhost:5555/api/v1/user/get-user/${userId}`)
+    //         const res = await axios.get(`${API_URL}/api/v1/user/get-user/${userId}`)
     //         if (res.data.success) {
     //             setUserDetails(res.data.user)
     //             setUpdateUser(res.data.user)  // ✅ set form values after fetch

@@ -7,6 +7,7 @@ import { Edit, Eye, Search } from "lucide-react";
 // import UserLogo from "../../user.png";
 import { toast } from "sonner";
 import { API_URL } from "@/utils/api";
+
 const AdminUsers = () => {
   const [users, setUsers] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
@@ -44,7 +45,7 @@ const AdminUsers = () => {
 
     try {
       const res = await axios.put(
-        `http://localhost:5555/api/v1/user/make-admin/${id}`,
+        `${API_URL}/api/v1/user/make-admin/${id}`,
         {},
         {
           headers: {
