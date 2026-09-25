@@ -41,7 +41,7 @@ const Signup = () => {
     try {
       setLoading(true);
       const res = await axios.post(
-        "`${API_URL}/api/v1/user/register`/",
+        `${API_URL}/api/v1/user/register`,
         formData,
         {
           headers: {
