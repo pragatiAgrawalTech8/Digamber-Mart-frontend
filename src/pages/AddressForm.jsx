@@ -115,7 +115,7 @@ const AddressForm = () => {
       key: import.meta.env.VITE_RAZORPAY_KEY_ID,
       amount: data.order.amount,
       currency: data.order.currency,
-      name: "Ekart",
+      name: "Digamber Mart", 
       description: "Order Payment",
       order_id: data.order.id,
 

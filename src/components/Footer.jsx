@@ -14,9 +14,6 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto px-4 md:flex md:justify-between">
         {/* info */}
         <div className="mb-6 md:mb-0">
-          {/* <Link to="/">
-            <img src="/Ekart.png" alt="" className="w-32" />
-          </Link> */}
           <p className="mt-2 text-sm">
             Bringing elegance to your dining table with premium-quality
             crockery.
@@ -95,7 +92,7 @@ const Footer = () => {
       <div className="mt-8 border-t border-gray-700 pt-6 text-center text-sm">
         <p>
           &copy; {new Date().getFullYear()}{" "}
-          <span className="text-pink-600">EKart</span>. All rights reserved
+          <span className="text-pink-600">Digamber Mart</span>. All rights reserved
         </p>
       </div>
     </footer>
