@@ -57,7 +57,7 @@ const Footer = () => {
               <FaInstagram size={24} />
             </a>
             <a
-              href="https://chat.whatsapp.com/lnl9Z1MBkLxHEks1Eqp"
+              href="https://chat.whatsapp.com/lnl9Z1MBkLxHjWEks1Eqp"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-pink-600 transition-colors"
@@ -73,7 +73,7 @@ const Footer = () => {
           <p className="mt-2 text-sm">
             Subscribe to get special offers, free giveaways, and more
           </p>
-          <form action="" className="mt-4 flex">
+          {/* <form action="" className="mt-4 flex">
             <input
               type="email"
               placeholder="Your email address"
@@ -85,7 +85,7 @@ const Footer = () => {
             >
               Subscribe
             </button>
-          </form>
+          </form> */}
         </div>
       </div>
       {/* bottom section */}

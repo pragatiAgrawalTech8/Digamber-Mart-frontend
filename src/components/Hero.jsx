@@ -1,6 +1,8 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import { Button } from "./ui/button";
 const Hero = () => {
+  const navigate = useNavigate();
   return (
     <section className="bg-gradient-to-r from-pink-500 to-gray-800 text-white py-16">
       <div className="max-w-7xl mx-auto px-4">
@@ -14,15 +16,16 @@ const Hero = () => {
               to every meal. Perfect for everyday dining and special occasions.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button className="bg-white text-blue-600 hover:bg-gray-100">
+              <Button  onClick={() => navigate("/products")}
+              className="bg-white text-blue-600 hover:bg-gray-100">
                 Shop Now
               </Button>
-              <Button
+              {/* <Button
                 variant="outline"
                 className="border-white text-white hover:bg-white hover:text-blue-600 bg-transparent"
               >
                 View Deals
-              </Button>
+              </Button> */}
             </div>
           </div>
           <div className="relative">
