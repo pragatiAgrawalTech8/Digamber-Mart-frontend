@@ -73,6 +73,9 @@ const AddressForm = () => {
     script.src = "https://checkout.razorpay.com/v1/checkout.js";
     script.async = true;
     document.body.appendChild(script);
+    return () => {
+    document.body.removeChild(script);   // cleanup
+  };
   }, []);
 
   const accessToken = localStorage.getItem("accessToken");
@@ -120,6 +123,7 @@ const AddressForm = () => {
       order_id: data.order.id,
 
      handler: async function (response) {
+       console.log("✅ Handler called with response:", response);
   try {
     const verifyRes = await axios.post(
       `${API_URL}/api/v1/orders/verify-payment`,
@@ -164,6 +168,7 @@ const AddressForm = () => {
 
       modal: {
         ondismiss: async function () {
+          console.log("❌ Modal dismissed")
           await axios.post(
             `${API_URL}/api/v1/orders/verify-payment`,
             {

@@ -18,6 +18,7 @@ import axios from "axios";
 import ImageUpload from "@/components/ImageUpload";
 import { useNavigate } from "react-router-dom";
 import { Loader2 } from "lucide-react";
+import { API_URL } from "@/utils/api";
 
 const AddProduct = () => {
   const accessToken = localStorage.getItem("accessToken");
@@ -43,7 +44,7 @@ const AddProduct = () => {
   };
 
   const submitHandler = async (e) => {
-    console.log(import.meta.env.VITE_URL);
+    console.log(API_URL);
     e.preventDefault();
     const formData = new FormData();
     formData.append("productName", productData.productName);
@@ -64,7 +65,7 @@ const AddProduct = () => {
     try {
       setLoading(true);
       const res = await axios.post(
-        `${import.meta.env.VITE_URL}/api/v1/product/add`,
+        `${API_URL}/api/v1/product/add`,
         formData,
         {
           headers: {
