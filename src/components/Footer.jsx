@@ -57,7 +57,7 @@ const Footer = () => {
               <FaInstagram size={24} />
             </a>
             <a
-              href="https://chat.whatsapp.com/lnl9Z1MBkLxHjWEks1Eqp"
+              href="https://chat.whatsapp.com/lnl9Z1MBkLxHjWHEks1Eqp"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-pink-600 transition-colors"
