@@ -234,10 +234,10 @@ const Cart = () => {
                 </div>
 
                 <div className="space-y-3 pt-4">
-                  <div className="flex gap-2">
+                  {/* <div className="flex gap-2">
                     <Input placeholder="Promo Code" />
                     <Button variant="outline">Apply</Button>
-                  </div>
+                  </div> */}
 
                   <Button
                     onClick={() => navigate("/address")}
