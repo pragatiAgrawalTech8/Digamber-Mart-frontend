@@ -24,7 +24,7 @@ const Signup = () => {
     lastName: "",
     email: "",
     password: "",
-    phone: "",
+    phoneNo: "",
   });
 
   const navigate = useNavigate();
