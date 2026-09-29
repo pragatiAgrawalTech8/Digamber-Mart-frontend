@@ -85,10 +85,11 @@ const Signup = () => {
     try {
       setLoading(true);
       const res = await axios.post(`${API_URL}/api/v1/user/register`, {
-        name: fullName,
+         firstName: formData.firstName,
+  lastName: formData.lastName,
         email: formData.email,
         password: formData.password,
-        phone: formData.phone,
+        phoneNo: formData.phone,
       });
 
       if (res.data.success) {
