@@ -31,6 +31,14 @@ const Signup = () => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
+
+    // Phone field में सिर्फ digits allow करें
+    if (name === "phone") {
+      const onlyDigits = value.replace(/\D/g, "");
+      setFormData((prev) => ({ ...prev, phone: onlyDigits }));
+      return;
+    }
+
     setFormData((prev) => ({
       ...prev,
       [name]: value,
@@ -40,12 +48,38 @@ const Signup = () => {
   const submitHandler = async (e) => {
     e.preventDefault();
 
-    // पूरा नाम बनाएँ
     const fullName = `${formData.firstName} ${formData.lastName}`.trim();
 
-    // Validation
-    if (!fullName || !formData.email || !formData.password || !formData.phone) {
-      return toast.error("Please fill all the fields");
+    // ✅ Field-by-field validation
+    if (!formData.firstName.trim()) {
+      return toast.error("Please enter your first name");
+    }
+    if (!formData.lastName.trim()) {
+      return toast.error("Please enter your last name");
+    }
+    if (!formData.email.trim()) {
+      return toast.error("Please enter your email");
+    }
+    if (!formData.phone.trim()) {
+      return toast.error("Please enter your phone number");
+    }
+    if (!formData.password) {
+      return toast.error("Please enter your password");
+    }
+
+    // ✅ Email validation
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+      return toast.error("Please enter a valid email address");
+    }
+
+    // ✅ Phone validation (Indian 10-digit number)
+    if (!/^[6-9]\d{9}$/.test(formData.phone)) {
+      return toast.error("Please enter a valid 10-digit phone number");
+    }
+
+    // ✅ Password validation (minimum 6 characters)
+    if (formData.password.length < 6) {
+      return toast.error("Password must be at least 6 characters");
     }
 
     try {
@@ -141,6 +175,7 @@ const Signup = () => {
                 name="phone"
                 type="tel"
                 placeholder="9876543210"
+                maxLength={10}
                 required
                 value={formData.phone}
                 onChange={handleChange}
