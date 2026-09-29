@@ -17,12 +17,13 @@ const sendOtp = async (mobile) => {
       {
         template_id: MSG91_TEMPLATE_ID,
         mobile: formattedMobile,
-        authkey: MSG91_AUTH_KEY,
+        
         sender: MSG91_SENDER_ID,
       },
       {
         headers: {
           "Content-Type": "application/json",
+          authkey: MSG91_AUTH_KEY,
         },
       }
     );

@@ -53,7 +53,7 @@ const VerifyOTP = () => {
 
   const resendOtp = async () => {
     try {
-      await axios.post(`${API_URL}/api/v1/user/retry-otp`, { phoneNo: phone });
+      await axios.post(`${API_URL}/api/v1/user/retry-otp`, {  phoneNo });
       toast.success("OTP resent successfully");
     } catch (error) {
       toast.error("Failed to resend OTP");
