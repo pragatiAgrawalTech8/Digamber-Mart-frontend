@@ -191,7 +191,7 @@ const VerifyOTP = () => {
           </div>
           <CardTitle className="text-center">Verify Phone Number</CardTitle>
           <CardDescription className="text-center">
-            We've sent a 6-digit OTP to <strong>{phone}</strong>. Enter it below
+            We've sent a 6-digit OTP to <strong>{phoneNo}</strong>. Enter it below
             to verify your account.
           </CardDescription>
         </CardHeader>

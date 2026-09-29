@@ -33,9 +33,9 @@ const Signup = () => {
     const { name, value } = e.target;
 
     // Phone field में सिर्फ digits allow करें
-    if (name === "phone") {
+    if (name === "phoneNo") {
       const onlyDigits = value.replace(/\D/g, "");
-      setFormData((prev) => ({ ...prev, phone: onlyDigits }));
+      setFormData((prev) => ({ ...prev, phoneNo: onlyDigits }));
       return;
     }
 
@@ -60,7 +60,7 @@ const Signup = () => {
     if (!formData.email.trim()) {
       return toast.error("Please enter your email");
     }
-    if (!formData.phone.trim()) {
+    if (!formData.phoneNo.trim()) {
       return toast.error("Please enter your phone number");
     }
     if (!formData.password) {
@@ -73,7 +73,7 @@ const Signup = () => {
     }
 
     // ✅ Phone validation (Indian 10-digit number)
-    if (!/^[6-9]\d{9}$/.test(formData.phone)) {
+    if (!/^[6-9]\d{9}$/.test(formData.phoneNo)) {
       return toast.error("Please enter a valid 10-digit phone number");
     }
 
@@ -89,13 +89,13 @@ const Signup = () => {
   lastName: formData.lastName,
         email: formData.email,
         password: formData.password,
-        phoneNo: formData.phone,
+        phoneNo: formData.phoneNo,
       });
 
       if (res.data.success) {
         toast.success("OTP sent to your mobile!");
         navigate("/verify-otp", {
-          state: { phone: formData.phone },
+          state: { phoneNo: formData.phoneNo },
         });
       }
     } catch (error) {
@@ -170,15 +170,15 @@ const Signup = () => {
 
             {/* Phone Number */}
             <div className="grid gap-2">
-              <Label htmlFor="phone">Phone Number</Label>
+              <Label htmlFor="phoneNo">Phone Number</Label>
               <Input
-                id="phone"
-                name="phone"
+                id="phoneNo"
+                name="phoneNo"
                 type="tel"
                 placeholder="9876543210"
                 maxLength={10}
                 required
-                value={formData.phone}
+                value={formData.phoneNo}
                 onChange={handleChange}
               />
             </div>
