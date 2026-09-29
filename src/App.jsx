@@ -54,21 +54,25 @@ const router = createBrowserRouter([
       </>
     ),
   },
-  {
-    path: "/verify",
-    element: (
-      <>
-        <Verify />
-      </>
-    ),
-  },
-  {
-    path: "/verify/:token",
-    element: (
-      <>
-        <VerifyEmail />
-      </>
-    ),
+  // {
+  //   path: "/verify",
+  //   element: (
+  //     <>
+  //       <Verify />
+  //     </>
+  //   ),
+  // },
+  // {
+  //   path: "/verify/:token",
+  //   element: (
+  //     <>
+  //       <VerifyEmail />
+  //     </>
+  //   ),
+  // },
+  { 
+    path:"/verify-otp",
+   element:<VerifyOTP />,
   },
   {
   path: "/forgot-password",
