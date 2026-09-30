@@ -23,17 +23,15 @@ const Footer = () => {
             Jabalpur,Madhya Pradesh
           </p>
           <p className="text-sm">Email: rishuzzworld@gmail.com</p>
-          <p className="text-sm">Phone: 9302568817</p>
+          <p className="text-sm">Phone: 9302568817,7869055545</p>
         </div>
         {/* customer service link */}
         <div className="mb-6 md:mb-0">
           <h3 className="text-xl font-semibold">Customer Service</h3>
           <ul className="mt-2 text-sm space-y-2">
             <li>Contact Us</li>
-            <li>Shipping & Returns</li>
+            <li>Shipping</li>
             <li>FAQs</li>
-            <li>Order Tracking</li>
-            <li>Size Guide</li>
           </ul>
         </div>
         {/* social media links */}

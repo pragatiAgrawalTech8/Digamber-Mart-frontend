@@ -74,7 +74,7 @@ const Login = () => {
       <Card className="w-full max-w-sm">
         <CardHeader>
           <div className="flex items-center justify-between">
-            <CardTitle>Create an account</CardTitle>
+            <CardTitle>Enter Email Address & Password</CardTitle>
           </div>
           <CardDescription>
             Enter your details below to create your account

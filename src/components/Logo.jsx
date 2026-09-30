@@ -176,18 +176,18 @@
 const Logo = ({ className = "h-16 w-auto" }) => {
   return (
     <svg
-      viewBox="0 0 760 190"
+      viewBox="0 0 860 200"
       xmlns="http://www.w3.org/2000/svg"
       className={className}
       role="img"
       aria-label="Digamber Mart"
     >
       {/* Shopping Cart */}
-      <g transform="translate(15,35)">
+      <g transform="translate(15,40)">
         <circle
           cx="52"
           cy="52"
-          r="42"
+          r="46"
           fill="#FFF6FA"
           stroke="#DB2777"
           strokeWidth="2"
@@ -211,7 +211,7 @@ const Logo = ({ className = "h-16 w-auto" }) => {
         x="125"
         y="82"
         fontFamily="'Cormorant Garamond', serif"
-        fontSize="54"
+        fontSize="68"
         fontStyle="italic"
         fill="#202020"
         letterSpacing="1"
@@ -236,9 +236,9 @@ const Logo = ({ className = "h-16 w-auto" }) => {
         y="138"
         fontFamily="'Poppins', sans-serif"
         
-        fontSize="26"
+        fontSize="32"
         fontWeight="500"
-        letterSpacing="7"
+        letterSpacing="8"
         fill="#DB2777"
       >
         MART

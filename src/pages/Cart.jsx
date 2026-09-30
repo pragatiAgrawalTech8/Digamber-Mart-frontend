@@ -253,7 +253,6 @@ const Cart = () => {
 
                 <div className="text-sm text-muted-foreground pt-4">
                   <p>* Free shipping on orders over 299</p>
-                  <p>* 30-days return policy</p>
                   <p>* Secure checkout with SSL encryption</p>
                 </div>
               </CardContent>
