@@ -25,7 +25,7 @@ import UserInfo from './pages/admin/UserInfo'
 import OrderSuccess from './pages/OrderSuccess'
 import ForgotPassword from "./pages/ForgotPassword";
 import ChangePassword from "./pages/ChangePassword";
-import VerifyOTP from "./pages/VerifyOTP";
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -53,26 +53,23 @@ const router = createBrowserRouter([
       </>
     ),
   },
-  // {
-  //   path: "/verify",
-  //   element: (
-  //     <>
-  //       <Verify />
-  //     </>
-  //   ),
-  // },
-  // {
-  //   path: "/verify/:token",
-  //   element: (
-  //     <>
-  //       <VerifyEmail />
-  //     </>
-  //   ),
-  // },
-  { 
-    path:"/verify-otp",
-   element:<VerifyOTP />,
+  {
+    path: "/verify",
+    element: (
+      <>
+        <Verify />
+      </>
+    ),
   },
+  {
+    path: "/verify/:token",
+    element: (
+      <>
+        <VerifyEmail />
+      </>
+    ),
+  },
+ 
   {
   path: "/forgot-password",
   element: <ForgotPassword />,
