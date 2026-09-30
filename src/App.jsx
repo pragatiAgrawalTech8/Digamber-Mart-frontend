@@ -24,7 +24,6 @@ import AdminUsers from './pages/admin/AdminUsers'
 import UserInfo from './pages/admin/UserInfo'
 import OrderSuccess from './pages/OrderSuccess'
 import ForgotPassword from "./pages/ForgotPassword";
-import VerifyOTP from "./pages/VerifyOTP";
 import ChangePassword from "./pages/ChangePassword";
 
 const router = createBrowserRouter([
@@ -78,10 +77,7 @@ const router = createBrowserRouter([
   path: "/forgot-password",
   element: <ForgotPassword />,
 },
-{
-  path: "/verify-otp/:email",
-  element: <VerifyOTP />,
-},
+
 {
   path: "/change-password/:email",
   element: <ChangePassword />,

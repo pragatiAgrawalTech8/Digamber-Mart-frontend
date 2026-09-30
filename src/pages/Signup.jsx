@@ -1,11 +1,7 @@
 import { useState } from "react";
 import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
+  Card, CardContent, CardDescription, CardFooter,
+  CardHeader, CardTitle,
 } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
@@ -24,60 +20,27 @@ const Signup = () => {
     lastName: "",
     email: "",
     password: "",
-    phoneNo: "",
   });
 
   const navigate = useNavigate();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-
-    // Phone field में सिर्फ digits allow करें
-    if (name === "phoneNo") {
-      const onlyDigits = value.replace(/\D/g, "");
-      setFormData((prev) => ({ ...prev, phoneNo: onlyDigits }));
-      return;
-    }
-
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
   const submitHandler = async (e) => {
     e.preventDefault();
 
-    const fullName = `${formData.firstName} ${formData.lastName}`.trim();
+    // Validation
+    if (!formData.firstName.trim()) return toast.error("Please enter your first name");
+    if (!formData.lastName.trim()) return toast.error("Please enter your last name");
+    if (!formData.email.trim()) return toast.error("Please enter your email");
+    if (!formData.password) return toast.error("Please enter your password");
 
-    // ✅ Field-by-field validation
-    if (!formData.firstName.trim()) {
-      return toast.error("Please enter your first name");
-    }
-    if (!formData.lastName.trim()) {
-      return toast.error("Please enter your last name");
-    }
-    if (!formData.email.trim()) {
-      return toast.error("Please enter your email");
-    }
-    if (!formData.phoneNo.trim()) {
-      return toast.error("Please enter your phone number");
-    }
-    if (!formData.password) {
-      return toast.error("Please enter your password");
-    }
-
-    // ✅ Email validation
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
       return toast.error("Please enter a valid email address");
     }
-
-    // ✅ Phone validation (Indian 10-digit number)
-    if (!/^[6-9]\d{9}$/.test(formData.phoneNo)) {
-      return toast.error("Please enter a valid 10-digit phone number");
-    }
-
-    // ✅ Password validation (minimum 6 characters)
     if (formData.password.length < 6) {
       return toast.error("Password must be at least 6 characters");
     }
@@ -85,26 +48,19 @@ const Signup = () => {
     try {
       setLoading(true);
       const res = await axios.post(`${API_URL}/api/v1/user/register`, {
-         firstName: formData.firstName,
-  lastName: formData.lastName,
+        firstName: formData.firstName,
+        lastName: formData.lastName,
         email: formData.email,
         password: formData.password,
-        phoneNo: formData.phoneNo,
       });
 
       if (res.data.success) {
-        toast.success("OTP sent to your mobile!");
-        navigate("/verify-otp", {
-          state: { phoneNo: formData.phoneNo },
-        });
+        toast.success("Verification email sent! Please check your inbox.");
+        navigate("/verify");   // ✅ Email check page पर जाएँ
       }
     } catch (error) {
       console.log("Full error:", error);
-      console.log("Response data:", error?.response?.data);
-      const message =
-        error?.response?.data?.message ||
-        "Something went wrong. Please try again.";
-      toast.error(message);
+      toast.error(error?.response?.data?.message || "Something went wrong");
     } finally {
       setLoading(false);
     }
@@ -125,29 +81,23 @@ const Signup = () => {
             {/* First Name + Last Name */}
             <div className="grid grid-cols-2 gap-2">
               <div>
-                <Label className="mb-2" htmlFor="firstName">
-                  First Name
-                </Label>
+                <Label className="mb-2" htmlFor="firstName">First Name</Label>
                 <Input
                   type="text"
                   id="firstName"
                   name="firstName"
                   placeholder="John"
-                  required
                   value={formData.firstName}
                   onChange={handleChange}
                 />
               </div>
               <div>
-                <Label className="mb-2" htmlFor="lastName">
-                  Last Name
-                </Label>
+                <Label className="mb-2" htmlFor="lastName">Last Name</Label>
                 <Input
                   type="text"
                   id="lastName"
                   name="lastName"
                   placeholder="Doe"
-                  required
                   value={formData.lastName}
                   onChange={handleChange}
                 />
@@ -162,23 +112,7 @@ const Signup = () => {
                 id="email"
                 type="email"
                 placeholder="m@example.com"
-                required
                 value={formData.email}
-                onChange={handleChange}
-              />
-            </div>
-
-            {/* Phone Number */}
-            <div className="grid gap-2">
-              <Label htmlFor="phoneNo">Phone Number</Label>
-              <Input
-                id="phoneNo"
-                name="phoneNo"
-                type="tel"
-                placeholder="9876543210"
-                maxLength={10}
-                required
-                value={formData.phoneNo}
                 onChange={handleChange}
               />
             </div>
@@ -192,7 +126,6 @@ const Signup = () => {
                   name="password"
                   placeholder="Create a password"
                   type={showPassword ? "text" : "password"}
-                  required
                   value={formData.password}
                   onChange={handleChange}
                 />
@@ -217,7 +150,7 @@ const Signup = () => {
             onClick={submitHandler}
             type="submit"
             disabled={loading}
-            className="w-full cursor-pointer bg-pink-600 hover:bg-pink-400"
+            className="w-full bg-pink-600 hover:bg-pink-400"
           >
             {loading ? (
               <>
@@ -230,10 +163,7 @@ const Signup = () => {
           </Button>
           <p className="text-gray-700 text-sm">
             Already have an account?{" "}
-            <Link
-              to={"/login"}
-              className="hover:underline cursor-pointer text-pink-800"
-            >
+            <Link to={"/login"} className="hover:underline text-pink-800">
               Login
             </Link>
           </p>
