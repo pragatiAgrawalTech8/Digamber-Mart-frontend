@@ -25,7 +25,7 @@ import UserInfo from './pages/admin/UserInfo'
 import OrderSuccess from './pages/OrderSuccess'
 import ForgotPassword from "./pages/ForgotPassword";
 import ChangePassword from "./pages/ChangePassword";
-
+import VerifyOTP from "./pages/VerifyOTP";
 const router = createBrowserRouter([
   {
     path: "/",
