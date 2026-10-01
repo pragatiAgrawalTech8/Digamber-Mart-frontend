@@ -15,14 +15,13 @@ const Footer = () => {
         {/* info */}
         <div className="mb-6 md:mb-0">
           <p className="mt-2 text-sm">
-            Bringing elegance to your dining table with premium-quality
-            crockery.
+            Your trusted store for crockery, utensils, plasticware, pooja articles, and everyday home essentials
           </p>
           <p className="mt-2 text-sm">
-            Digamber crockery, nera Indian Coffee House, Sadar Road
+            Digamber crockery, near Indian Coffee House, Sadar Road
             Jabalpur,Madhya Pradesh
           </p>
-          <p className="text-sm">Email: rishuzzworld@gmail.com</p>
+          <p className="text-sm">Email: digambermart@gmail.com</p>
           <p className="text-sm">Phone: 9302568817,7869055545</p>
         </div>
         {/* customer service link */}
