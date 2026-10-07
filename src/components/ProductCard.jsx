@@ -7,13 +7,24 @@ import { useNavigate } from "react-router-dom";
 import { setCart } from "@/redux/productSlice";
 import axios from "axios";
 import { API_URL } from "@/utils/api";
+
 const ProductCard = ({ product, loading }) => {
   const { productImg, productPrice, productName } = product;
 
-  const accessToken = localStorage.getItem("accessToken");
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
   const addToCart = async (productId) => {
+    // ✅ 1. Login check — agar token nahi hai to login page par bhejo
+    const accessToken = localStorage.getItem("accessToken");
+
+    if (!accessToken) {
+      toast.error("Please login to add items to cart");
+      navigate("/login");
+      return;
+    }
+
+    // ✅ 2. Agar logged in hai to cart me add karo
     try {
       const res = await axios.post(
         `${API_URL}/api/v1/cart/add`,
@@ -22,7 +33,7 @@ const ProductCard = ({ product, loading }) => {
           headers: {
             Authorization: `Bearer ${accessToken}`,
           },
-        },
+        }
       );
 
       if (res.data.success) {
@@ -34,6 +45,7 @@ const ProductCard = ({ product, loading }) => {
       toast.error(error.response?.data?.message || "Something went wrong");
     }
   };
+
   return (
     <div className="shadow-lg rounded-lg overflow-hidden h-max">
       <div className="w-full h-full aspect-square overflow-hidden">
