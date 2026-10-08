@@ -9,7 +9,7 @@ const Hero = () => {
         <div className="grid md:grid-cols-2 gap-8 items-center">
           <div>
             <h1 className="pt-3 text-4xl md:text-6xl font-bold mb-4">
-              Everyday Home & Kithen Essentials at Best Prices
+              Everyday Home & Kitchen Essentials at Best Prices
             </h1>
             <p className="text-xl mb-6 text-blue-100">
              Discover a complete range of premium crockery, steel utensils, durable plastics, 

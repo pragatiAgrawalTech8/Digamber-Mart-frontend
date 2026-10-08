@@ -27,9 +27,9 @@ const Login = () => {
   });
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  useEffect(() => {
-    toast("Test toast - working!");
-  }, []);
+  // useEffect(() => {
+  //   toast("Test toast - working!");
+  // }, []);
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({

@@ -22,7 +22,7 @@ const Footer = () => {
             Jabalpur,Madhya Pradesh
           </p>
           <p className="text-sm">Email: digambermart@gmail.com</p>
-          <p className="text-sm">Phone: 9302568817,7869055545</p>
+          <p className="text-sm">Phone: 9302568817, 7869055545</p>
         </div>
         {/* customer service link */}
         <div className="mb-6 md:mb-0">
