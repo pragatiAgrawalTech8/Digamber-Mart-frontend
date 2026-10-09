@@ -4,12 +4,25 @@ import { Button } from "./ui/button";
 import axios from "axios";
 import { toast } from "sonner";
 import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { setCart } from "@/redux/productSlice";
 import { API_URL } from "@/utils/api";
+
 const ProductDesc = ({ product }) => {
-  const accessToken = localStorage.getItem("accessToken");
   const dispatch = useDispatch();
+  const navigate = useNavigate();   // ✅ Login redirect ke liye
+
   const addToCart = async (productId) => {
+    // ✅ 1. Login check — agar token nahi hai to login page par bhejo
+    const accessToken = localStorage.getItem("accessToken");
+
+    if (!accessToken) {
+      toast.error("Please login to add items to cart");
+      navigate("/login");
+      return;
+    }
+
+    // ✅ 2. Agar logged in hai to cart me add karo
     try {
       const res = await axios.post(
         `${API_URL}/api/v1/cart/add`,
@@ -18,7 +31,7 @@ const ProductDesc = ({ product }) => {
           headers: {
             Authorization: `Bearer ${accessToken}`,
           },
-        },
+        }
       );
 
       if (res.data.success) {
@@ -28,7 +41,7 @@ const ProductDesc = ({ product }) => {
     } catch (error) {
       console.log(error);
       toast.error(
-        error.response?.data?.message || "Failed to add product to cart",
+        error.response?.data?.message || "Failed to add product to cart"
       );
     }
   };
